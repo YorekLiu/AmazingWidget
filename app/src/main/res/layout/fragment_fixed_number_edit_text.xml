@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <xyz.yorek.widget.FixedNumberEditText
+        android:id="@+id/etCode1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:textColor="#FF202020"
+        android:textCursorDrawable="@drawable/drawable_text_cursor"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:background="@null"
+        app:cellBackground="@drawable/bg_fff5f8fb_stroke_ffcecece_r8"
+        app:cellCount="6"
+        app:cellGap="6dp"
+        app:cellWidth="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="888888" />
+
+    <xyz.yorek.widget.FixedNumberEditText
+        android:id="@+id/etCode2"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:textColor="#FF202020"
+        android:textCursorDrawable="@drawable/drawable_text_cursor"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:background="@null"
+        app:cellBackground="@drawable/bg_fff5f8fb_stroke_ffcecece_r8"
+        app:cellCount="4"
+        app:cellGap="6dp"
+        app:cellWidth="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCode1"
+        tools:text="888888" />
+
+    <xyz.yorek.widget.FixedNumberEditText
+        android:id="@+id/etCode3"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:textColor="#FF202020"
+        android:textCursorDrawable="@drawable/drawable_text_cursor"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:background="@null"
+        app:cellBackground="@drawable/bg_line_ffcecece"
+        app:cellCount="6"
+        app:cellGap="6dp"
+        app:cellWidth="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCode2"
+        tools:text="888888" />
+
+    <xyz.yorek.widget.FixedNumberEditText
+        android:id="@+id/etCode4"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:textColor="#FF202020"
+        android:textCursorDrawable="@drawable/drawable_text_cursor"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:background="@null"
+        app:cellBackground="@drawable/bg_line_ffcecece"
+        app:cellCount="4"
+        app:cellGap="6dp"
+        app:cellWidth="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCode3"
+        tools:text="888888" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

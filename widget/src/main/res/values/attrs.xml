@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FixedNumberEditText">
+        <attr name="cellBackground" format="reference" />
+        <attr name="cellWidth" format="dimension" />
+        <attr name="cellGap" format="dimension" />
+        <attr name="cellCount" format="integer" />
+        <attr name="android:textCursorDrawable" />
+    </declare-styleable>
+
+    <declare-styleable name="ScrollableRingView">
+        <attr name="android:duration" />
+        <attr name="startOffsetX" format="dimension" />
+    </declare-styleable>
+</resources>
