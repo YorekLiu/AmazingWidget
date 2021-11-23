@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import xyz.yorek.amazingwidget.widget.FixedNumberEditTextFragment
 import xyz.yorek.amazingwidget.widget.ScrollableRingFragment
 import xyz.yorek.amazingwidget.widget.SpanFragment
+import xyz.yorek.amazingwidget.widget.TabLayoutFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             "格子样式的密码框" to FixedNumberEditTextFragment::class.java,
             "头尾相连的自滚动的ImageView" to ScrollableRingFragment::class.java,
             "各种Span" to SpanFragment::class.java,
+            "基于Google TabLayout实现的支持设置选中文字大小、固定宽度指示器、图片的TabLayout" to TabLayoutFragment::class.java
         )
     }
 
