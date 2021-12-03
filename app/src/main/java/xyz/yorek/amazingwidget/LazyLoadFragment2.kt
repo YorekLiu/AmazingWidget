@@ -2,6 +2,7 @@ package xyz.yorek.amazingwidget
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import kotlin.random.Random
 
@@ -10,12 +11,30 @@ import kotlin.random.Random
  *
  * @author yorek.liu
  */
-class EmptyFragment: BaseFragment() {
+class LazyLoadFragment2(
+    private val pos: Int
+): BaseFragment() {
+    private var mLoaded = false
+
     override fun layoutId(): Int = R.layout.fragment_empty
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("Lazy2", "create $pos")
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val random = Random(System.currentTimeMillis())
         view.setBackgroundColor(Color.argb(random.nextInt(256), random.nextInt(256), random.nextInt(256), random.nextInt(256)))
+        Log.d("Lazy2", "createView $pos")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (!mLoaded) {
+            mLoaded = true
+            Log.d("Lazy2", "load $pos")
+        }
     }
 }

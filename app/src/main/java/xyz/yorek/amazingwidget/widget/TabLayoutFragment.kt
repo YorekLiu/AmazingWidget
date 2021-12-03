@@ -8,6 +8,10 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import xyz.yorek.amazingwidget.*
 import xyz.yorek.widget.tablayout.ImageTabLayout
 import xyz.yorek.widget.tablayout.XMTabLayout
@@ -70,11 +74,15 @@ class TabLayoutFragment : BaseFragment() {
 
         val tabLayout1 = requireView().findViewById<ImageTabLayout>(R.id.tabLayout1)
         val viewPager1 = requireView().findViewById<ViewPager>(R.id.viewPager1)
-        initViewPager(tabLayout1, viewPager1, onImageTabFactory, scroller, scrollerField, getData1())
+//        initViewPager(tabLayout1, viewPager1, onImageTabFactory, scroller, scrollerField, getData1())
 
         val tabLayout2 = requireView().findViewById<ImageTabLayout>(R.id.tabLayout2)
         val viewPager2 = requireView().findViewById<ViewPager>(R.id.viewPager2)
-        initViewPager(tabLayout2, viewPager2, onImageTabFactory, scroller, scrollerField, getData2())
+        initViewPager(tabLayout2, viewPager2, onImageTabFactory, scroller, scrollerField, getData1())
+
+        val tabLayout3 = requireView().findViewById<TabLayout>(R.id.tabLayout3)
+        val viewPager3 = requireView().findViewById<ViewPager2>(R.id.viewPager3)
+//        initViewPager2(tabLayout3, viewPager3, onImageTabFactory, scroller, scrollerField, getData2())
     }
 
     private fun initViewPager(
@@ -110,6 +118,29 @@ class TabLayoutFragment : BaseFragment() {
                 tabLayout.createImageTab(index, it)
             }
         }
+    }
+
+    private fun initViewPager2(
+        tabLayout: TabLayout,
+        viewPager: ViewPager2,
+        onImageTabFactory: ImageTabLayout.OnImageTabFactory,
+        scroller: CustomDurationScroller,
+        scrollerField: Field,
+        data: List<Pair<String, Int?>>
+    ) {
+        viewPager.adapter = object: FragmentStateAdapter(this) {
+            override fun createFragment(position: Int): Fragment {
+                return LazyLoadFragment2(position)
+            }
+
+            override fun getItemCount(): Int = data.size
+        }
+
+        TabLayoutMediator(tabLayout, viewPager, false) { tab, position ->
+            tab.text = data[position].first
+        }.attach()
+
+        viewPager.offscreenPageLimit = data.size
     }
 
     private fun getData1(): List<Pair<String, Int?>> {
@@ -148,11 +179,11 @@ class TabLayoutPagerAdapter(
     data: List<Pair<String, Int?>>
 ): MultiChannelsPageAdapter<Pair<String, Int?>>(fm, data) {
 
-    override fun createFragment(t: Pair<String, Int?>): Fragment {
-        return EmptyFragment()
+    override fun createFragment(position: Int, t: Pair<String, Int?>): Fragment {
+        return LazyLoadFragment1(position)
     }
 
-    override fun getPageTitle(t: Pair<String, Int?>): CharSequence {
+    override fun getPageTitle(position: Int, t: Pair<String, Int?>): CharSequence {
         return t.first
     }
 }

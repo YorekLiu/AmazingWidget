@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,7 +21,7 @@ public abstract class MultiChannelsPageAdapter<T> extends FragmentStatePagerAdap
     private final List<T> mData;
 
     public MultiChannelsPageAdapter(FragmentManager fm, List<T> data) {
-        super(fm);
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         mData = data;
 
         mItems = new HashMap<>();
@@ -34,7 +33,7 @@ public abstract class MultiChannelsPageAdapter<T> extends FragmentStatePagerAdap
         Fragment fragment = mItems.get(i);
         if (fragment == null) {
             T t = mData.get(i);
-            fragment = createFragment(t);
+            fragment = createFragment(i, t);
             mItems.put(i, fragment);
         }
         return fragment;
@@ -49,9 +48,9 @@ public abstract class MultiChannelsPageAdapter<T> extends FragmentStatePagerAdap
         return getItem(index);
     }
 
-    public abstract Fragment createFragment(@NonNull T t);
+    public abstract Fragment createFragment(int position, @NonNull T t);
 
-    public abstract CharSequence getPageTitle(@NonNull T t);
+    public abstract CharSequence getPageTitle(int position, @NonNull T t);
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
@@ -68,7 +67,7 @@ public abstract class MultiChannelsPageAdapter<T> extends FragmentStatePagerAdap
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return getPageTitle(mData.get(position));
+        return getPageTitle(position, mData.get(position));
     }
 
 //    public void clear() {
