@@ -20,4 +20,4 @@
       
 - 其他  
     - 骨架图+渐变 实现简单骨架屏  
-      ![simple_skeleton](https://raw.githubusercontent.com/YorekLiu/AmazingWidget/master/_screenshots/simple_skeleton.webm)
+      ![simple_skeleton](https://raw.githubusercontent.com/YorekLiu/AmazingWidget/master/_screenshots/simple_skeleton.webp)
