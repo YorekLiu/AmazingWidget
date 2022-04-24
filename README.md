@@ -17,3 +17,7 @@
 - TabLayout
     - 基于Google TabLayout进行最小化修改的TabLayout，支持设置选中/未选中文字的字号、支持设置图片、支持滑动ViewPager时文字字号动态变化  
       ![image_tab_layout](https://raw.githubusercontent.com/YorekLiu/AmazingWidget/master/_screenshots/image_tab_layout.webp)
+      
+- 其他  
+    - 骨架图+渐变 实现简单骨架屏  
+      ![simple_skeleton](https://raw.githubusercontent.com/YorekLiu/AmazingWidget/master/_screenshots/simple_skeleton.webm)

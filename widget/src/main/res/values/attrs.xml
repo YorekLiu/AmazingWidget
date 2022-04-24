@@ -16,4 +16,8 @@
     <declare-styleable name="ImageTabLayout">
         <attr name="tabSelectedTextSize" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="SimpleSkeletonView">
+        <attr name="skeletonDuration" format="integer" />
+    </declare-styleable>
 </resources>

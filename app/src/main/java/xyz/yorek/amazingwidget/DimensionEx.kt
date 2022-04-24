@@ -13,3 +13,10 @@ fun Float.dp2px(): Float {
         this, App.getApplication().resources.displayMetrics
     )
 }
+
+fun Int.dp(): Float {
+    return TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this.toFloat(), App.getApplication().resources.displayMetrics
+    )
+}
